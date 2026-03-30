@@ -264,8 +264,8 @@ function HeroSection() {
                 { label: "No paywalls", sub: "ever" },
               ] as const).map(({ label, sub }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full" style={{ backgroundColor: "#ccfbf1" }}>
-                    <IconCheck className="h-3.5 w-3.5" style={{ color: "#00956e" } as React.CSSProperties} />
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full" style={{ backgroundColor: "#ccfbf1", color: "#00956e" }}>
+                    <IconCheck className="h-3.5 w-3.5" />
                   </div>
                   <span className="text-sm text-slate-700">
                     <strong className="font-semibold">{label}</strong>{" "}
@@ -335,9 +335,9 @@ function FeaturesSection() {
             <li key={title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
               <div
                 className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
-                style={{ backgroundColor: "#ccfbf1" }}
+                style={{ backgroundColor: "#ccfbf1", color: "#00956e" }}
               >
-                <Icon className="h-6 w-6" style={{ color: "#00956e" } as React.CSSProperties} />
+                <Icon className="h-6 w-6" />
               </div>
               <h3 className="mb-2 text-base font-bold text-slate-900">{title}</h3>
               <p className="text-sm leading-relaxed text-slate-600">{description}</p>
