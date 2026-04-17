@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
+import { ADSENSE_CLIENT_ID } from "@/lib/env";
 
 const SITE_URL = "https://techpulse-web.vercel.app";
 
@@ -20,6 +22,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  ...(ADSENSE_CLIENT_ID && {
+    other: { "google-adsense-account": ADSENSE_CLIENT_ID },
+  }),
   openGraph: {
     title: "TechPulse — AI-Powered Tech News for Android",
     description:
@@ -53,7 +58,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {ADSENSE_CLIENT_ID && (
+          <Script
+            id="adsense-loader"
+            async
+            strategy="afterInteractive"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
+      </body>
     </html>
   );
 }
