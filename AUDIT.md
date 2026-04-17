@@ -1,12 +1,13 @@
 # TechPulse Web — Audit Findings
 
 > Backlog from 2026-04-17 audit. Do later.
+> AdSense integration + phase 2 post-approval plan lives in [`docs/ADSENSE.md`](docs/ADSENSE.md).
 
 ## Priority 1 — A11y / Correctness
 
 - [ ] **Button contrast fails WCAG AA.** `#00d4a0` bg + white text = 2.4:1 (need 4.5:1). Switch primary button bg to `#00956e` (already used elsewhere) or darken.
 - [ ] **Focus ring color unset.** `focus-visible:outline` has no color — may be invisible on teal. Add explicit `outline-slate-900` or `outline-[#00956e]`.
-- [ ] **Footer misleading.** Says "Built with React Native" on a Next.js site. Change to "Next.js" (or remove).
+- [x] **Footer misleading.** ~~Says "Built with React Native" on a Next.js site.~~ Fixed in shared `Footer.tsx` → now "Built with Next.js".
 
 ## Priority 2 — Perf / Assets
 
@@ -29,7 +30,7 @@
   - `src/components/PhoneMockup.tsx`, `DownloadButton.tsx`
   - `src/data/features.ts`, `src/data/techStack.ts`
   - `src/lib/constants.ts` (APK_DOWNLOAD_URL)
-- [ ] **Dead import.** `import React from "react"` at line 478 — unneeded (Next 14 JSX transform). Remove.
+- [x] **Dead import.** ~~`import React from "react"` at line 478~~ — removed.
 - [ ] **Inline hex colors everywhere.** Add brand tokens to `tailwind.config.ts`:
   ```ts
   brand: {

@@ -1,10 +1,9 @@
 import Image from "next/image";
-
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
-const APK_DOWNLOAD_URL = "https://drive.google.com/drive/folders/1JfZk8mZmWh-va5dQYMWx0IgQuFteanK2?usp=sharing";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { AdUnit } from "@/components/AdUnit";
+import { APK_DOWNLOAD_URL } from "@/lib/constants";
+import { ADSENSE_SLOT_HOME_MID, ADSENSE_SLOT_HOME_CTA } from "@/lib/env";
 
 // App accent: #00d4a0 (teal) — matches the mobile app theme
 // Hover shade: #00b88a (10% darker)
@@ -186,32 +185,6 @@ function PhoneMockup({ src, alt, label }: { src: string; alt: string; label: str
       </div>
       <p className="mt-2 text-center text-xs font-medium text-slate-500">{label}</p>
     </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Section: Navbar
-// ---------------------------------------------------------------------------
-
-function Navbar() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex items-center gap-2.5">
-          <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-xl border border-slate-100 shadow-sm">
-            <Image
-              src="/screenshots/app_logo.png"
-              alt="TechPulse app icon"
-              width={36}
-              height={36}
-              className="object-cover"
-            />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-slate-900">TechPulse</span>
-        </div>
-        <DownloadButton />
-      </nav>
-    </header>
   );
 }
 
@@ -457,25 +430,8 @@ function DownloadSection() {
 }
 
 // ---------------------------------------------------------------------------
-// Section: Footer
-// ---------------------------------------------------------------------------
-
-function Footer() {
-  return (
-    <footer className="bg-slate-100">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 sm:flex-row sm:px-6 lg:px-8">
-        <p className="text-sm text-slate-500">TechPulse &copy; {new Date().getFullYear()}</p>
-        <p className="text-sm text-slate-500">Built with React Native &amp; ❤️</p>
-      </div>
-    </footer>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-
-import React from "react";
 
 export default function HomePage() {
   return (
@@ -484,8 +440,14 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <div className="bg-white py-10">
+          <AdUnit slot={ADSENSE_SLOT_HOME_MID} />
+        </div>
         <ScreenshotsSection />
         <TechSection />
+        <div className="bg-white py-10">
+          <AdUnit slot={ADSENSE_SLOT_HOME_CTA} />
+        </div>
         <DownloadSection />
       </main>
       <Footer />
