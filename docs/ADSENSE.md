@@ -89,12 +89,26 @@ AdSense dashboard status flips from **Getting ready** → **Ready**. You will al
 - Don't ask friends to click — same.
 - Don't copy `data-ad-slot` across ad units — each slot must be unique per `<AdUnit>` usage.
 
-### Future (Phase 3, optional)
+### Future (Phase 3 — news pages, the real revenue driver)
 
-Only consider if monthly revenue exceeds $50 and traffic exceeds 10k uniques/month:
+Landing pages have tiny ad surface. News pages have 10–100x more. Plan
+lives in [`docs/NEWS.md`](./NEWS.md). Two slot env vars are already
+wired and null-render until set:
 
-- Add a blog / changelog at `/blog/*` — more impression surface, natural in-article slots.
-- Introduce **Ezoic** or **Mediavine** as a mediator on top of AdSense (higher RPM, higher traffic threshold).
+- `NEXT_PUBLIC_ADSENSE_SLOT_NEWS_IN_FEED` — in-feed unit on `/news` listing
+- `NEXT_PUBLIC_ADSENSE_SLOT_NEWS_ARTICLE` — in-article unit on `/news/[slug]`
+
+Do this **only after Phase 2 ads are serving impressions** on the home
+page for at least 7 days.
+
+### Future (Phase 4, optional)
+
+Only consider if monthly revenue exceeds $50 and traffic exceeds
+10k uniques/month:
+
+- Introduce **Ezoic** or **Mediavine** as a mediator on top of AdSense
+  (higher RPM, higher traffic threshold).
 - A/B test slot positions using Vercel Edge Middleware.
 
-Below those thresholds the engineering time is not worth the incremental revenue.
+Below those thresholds the engineering time is not worth the
+incremental revenue.
