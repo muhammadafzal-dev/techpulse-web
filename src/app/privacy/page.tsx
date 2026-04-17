@@ -31,11 +31,26 @@ export default function PrivacyPage(): React.ReactElement {
 
           <h2>1. Information we collect</h2>
 
-          <h3>1.1 Directly</h3>
+          <h3>1.1 Through Google Sign-In (App only)</h3>
           <p>
-            We do not require an account. We do not ask for your name,
-            email, phone number, date of birth, or payment information. No
-            registration form exists anywhere on the Site or the App.
+            The App uses <strong>Google Sign-In</strong> so that your
+            saved-article list can follow you across devices. When you
+            authenticate, Google provides us with your{" "}
+            <strong>Google account ID</strong> (a stable unique identifier),{" "}
+            <strong>email address</strong>, and <strong>display name</strong>.
+            We do not request your profile photo URL, contact list, calendar,
+            or any other Google Workspace scope.
+          </p>
+          <p>
+            We store these values in a <strong>users</strong> row in
+            Supabase so that we can associate your bookmarks with your
+            account. We do not use your email for marketing, and we never
+            sell or share it.
+          </p>
+          <p>
+            We do not ask for your name (beyond what Google provides), phone
+            number, date of birth, or payment information. No password
+            flow exists anywhere.
           </p>
 
           <h3>1.2 Automatically on the Site</h3>
@@ -46,14 +61,18 @@ export default function PrivacyPage(): React.ReactElement {
             retained for operational and security purposes only.
           </p>
 
-          <h3>1.3 Automatically in the App</h3>
+          <h3>1.3 In the App (local + synced)</h3>
           <p>
-            The App stores your bookmarks, theme choice, and notification
-            preferences locally on your device. Bookmarks are never
-            transmitted to any server. Anonymous crash reports and basic
-            usage events may be sent to Firebase Crashlytics to help
-            diagnose issues; these reports contain device model, OS version,
-            and stack trace — no personal identifiers.
+            The App stores your theme choice and notification preferences
+            locally on your device. Your <strong>bookmark list</strong> is
+            synced to Supabase keyed to your Google account ID, so that
+            signing in on another device restores it.
+          </p>
+          <p>
+            Anonymous crash reports and basic usage events may be sent to
+            Firebase Crashlytics to help diagnose issues; these reports
+            contain device model, OS version, and stack trace — no personal
+            identifiers and no bookmark content.
           </p>
 
           <h2>2. Advertising and cookies</h2>
@@ -149,8 +168,24 @@ export default function PrivacyPage(): React.ReactElement {
                 </td>
               </tr>
               <tr>
+                <td>Google Sign-In</td>
+                <td>App authentication (account ID, email, name)</td>
+                <td>
+                  <a
+                    href="https://policies.google.com/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    policies.google.com/privacy
+                  </a>
+                </td>
+              </tr>
+              <tr>
                 <td>Supabase</td>
-                <td>Article metadata storage (read-only from the App)</td>
+                <td>
+                  User record + bookmark list storage; article metadata
+                  storage (shared, non-personal)
+                </td>
                 <td>
                   <a
                     href="https://supabase.com/privacy"
@@ -169,12 +204,33 @@ export default function PrivacyPage(): React.ReactElement {
           <p>
             Residents of the EEA, the UK, and California have rights to
             access, correct, delete, or object to the processing of their
-            personal data. Because we collect minimal data and do not
-            maintain user accounts, most requests relate to advertising
-            cookies — which you can exercise directly through Google Ads
-            Settings linked above. For anything else, contact us (section
-            7) and we will respond within thirty days.
+            personal data.
           </p>
+          <ul>
+            <li>
+              <strong>Delete your account.</strong> Open an issue at our
+              GitHub (section 7) with the email address tied to your
+              Google Sign-In, and we will delete your user record and all
+              associated bookmarks within seven days. In-app account
+              deletion is on the roadmap.
+            </li>
+            <li>
+              <strong>Export your data.</strong> Request a JSON export of
+              your bookmark list via the same channel.
+            </li>
+            <li>
+              <strong>Advertising cookies.</strong> These are Site-only (the
+              App shows no ads). Manage them via{" "}
+              <a
+                href="https://adssettings.google.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Ads Settings
+              </a>
+              .
+            </li>
+          </ul>
 
           <h2>5. Children&apos;s privacy</h2>
           <p>

@@ -113,8 +113,8 @@ const features = [
   },
   {
     Icon: IconBookmark,
-    title: "Offline Bookmarks",
-    description: "Save articles to read later. Bookmarks are stored locally — no account, no sync required.",
+    title: "Cross-Device Bookmarks",
+    description: "Sign in once with Google to sync saved articles and reading state across every device you use.",
   },
   {
     Icon: IconStar,
@@ -233,7 +233,7 @@ function HeroSection() {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
               {([
                 { label: "Zero cost", sub: "$0/month" },
-                { label: "No account", sub: "required" },
+                { label: "Google sign-in", sub: "one tap" },
                 { label: "No paywalls", sub: "ever" },
               ] as const).map(({ label, sub }) => (
                 <div key={label} className="flex items-center gap-2">
@@ -405,7 +405,7 @@ function DownloadSection() {
           Get TechPulse on Android
         </h2>
         <p className="mt-4 text-lg" style={{ color: "rgba(255,255,255,0.85)" }}>
-          Free download, no account required
+          Free download · Sign in with Google to save articles
         </p>
 
         <div className="mt-8">

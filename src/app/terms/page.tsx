@@ -50,6 +50,23 @@ export default function TermsPage(): React.ReactElement {
             operation.
           </p>
 
+          <h2>3.1 Account and authentication</h2>
+          <p>
+            The App uses Google Sign-In for a single purpose: to sync your
+            saved-article list across devices. By signing in you authorize
+            us to receive your Google account ID, email, and display name
+            from Google, and to store them in our user database. You may
+            read articles without signing in, but bookmarks will be
+            unavailable until you do. See the{" "}
+            <a href="/privacy">Privacy Policy</a> for detail.
+          </p>
+          <p>
+            You are responsible for keeping your Google account secure.
+            Any activity performed while signed in with your Google
+            account is attributed to you. Request account deletion at any
+            time via the contact route in section 10.
+          </p>
+
           <h2>4. Third-party content</h2>
           <p>
             Articles, headlines, excerpts, summaries, and images belong to

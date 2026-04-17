@@ -33,8 +33,10 @@ export default function AboutPage(): React.ReactElement {
           </p>
           <ul>
             <li>
-              <strong>No account.</strong> There is nothing to sign up for
-              and nothing you can personalize with your data.
+              <strong>One-tap sign-in.</strong> The app uses Google Sign-In
+              for a single purpose: to sync your saved articles across
+              devices. No username, no password, no email verification
+              flow.
             </li>
             <li>
               <strong>No subscription.</strong> Free forever. The website
@@ -62,9 +64,12 @@ export default function AboutPage(): React.ReactElement {
             you can read offline.
           </p>
           <p>
-            Summaries are generated once and cached — never per-user. That
-            keeps inference cost low enough to run the service on ad revenue
-            alone.
+            When you sign in with Google, the app creates a user record in
+            Supabase (keyed to your Google account ID) and stores your
+            bookmark list there so it follows you between devices.
+            Summaries themselves are generated once and cached globally —
+            never per-user — which keeps inference cost low enough to run
+            the service on ad revenue alone.
           </p>
 
           <h2>Sources in rotation</h2>

@@ -34,18 +34,31 @@ export default function FaqPage(): React.ReactElement {
 
           <h2>Do I need to create an account?</h2>
           <p>
-            No. The app has no login, no signup, and no cloud sync.
-            Bookmarks stay on your device, which also means they do not
-            follow you across devices.
+            You sign in with Google — one tap, no password, no email
+            verification. That is the only way to sign in; there is no
+            traditional email/password flow. Signing in lets your saved
+            articles follow you across devices. If you never sign in, you
+            can still read everything, but bookmarks will not be available.
+          </p>
+
+          <h2>Why do I need to sign in?</h2>
+          <p>
+            Only one reason: to sync your bookmarks across devices. The
+            app maps your Google account ID to a user row in Supabase, and
+            stores your saved-article list there. That is the entire scope
+            of the account. No profile, no settings server-side, no
+            messaging, no social graph.
           </p>
 
           <h2>Where does my data go?</h2>
           <p>
-            Almost nowhere. The app downloads publicly sourced article
-            metadata from a Supabase database. Your bookmarks stay local.
-            Anonymous crash reports go to Firebase Crashlytics so the next
-            build is less broken than the last. See{" "}
-            <Link href="/privacy">Privacy</Link> for details.
+            Only two places. (1) Google handles authentication — we receive
+            your Google account ID, email, and display name via the
+            standard OAuth flow. (2) Supabase stores a user row and your
+            bookmark list. Article content itself is fetched from a shared
+            (non-personal) Supabase table and cached on device. Anonymous
+            crash reports go to Firebase Crashlytics. See{" "}
+            <Link href="/privacy">Privacy</Link> for the full table.
           </p>
 
           <h2>How are summaries generated?</h2>
